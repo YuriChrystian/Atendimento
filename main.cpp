@@ -62,7 +62,7 @@ void addNewPeople(std::list<People> &pending) {
         return;
     }
 
-    auto target = findFirstPeopleByPriority(pending, p->priority);
+    auto target = findFirstPeopleByPriority(pending, p->priority-1);
     pending.insert(target, *p);
 
     delete p;
@@ -84,7 +84,7 @@ void listAllPeoples(std::list<People> &pending) {
         if (p.priority > 2) {
             std::cout << "(Prioridade ALTA) ";
         } else if (p.priority == 2) {
-            std::cout << "(Prioridade MÉDIA) ";
+            std::cout << "(Prioridade MEDIA) ";
         } else {
             std::cout << "(Prioridade BAIXA) ";
         }
@@ -149,7 +149,7 @@ void listAllDonePeoples(std::list<People> &done) {
         if (p.priority > 2) {
             std::cout << "(Prioridade ALTA) ";
         } else if (p.priority == 2) {
-            std::cout << "(Prioridade MÉDIA) ";
+            std::cout << "(Prioridade MEDIA) ";
         } else {
             std::cout << "(Prioridade BAIXA) ";
         }
@@ -177,7 +177,7 @@ void chancePriority(std::list<People> &pending) {
         if (p.priority > 2) {
             std::cout << "(ALTA) ";
         } else if (p.priority == 2) {
-            std::cout << "(MÉDIA) ";
+            std::cout << "(MEDIA) ";
         } else {
             std::cout << "(BAIXA) ";
         }
@@ -221,12 +221,11 @@ void removeFilteredPeople(std::list<People> &pending, int priority) {
 }
 
 int main() {
-    setlocale(LC_ALL, "pt_BR.UTF-8");
     auto title = "Totem de atendimento";
     std::list<People> pending;
     std::list<People> done;
 
-    std::string attendant = "";
+    std::string attendant = "Roberto Carlos";
 
     while (true) {
         system("cls");
